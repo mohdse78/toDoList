@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path data-name="Path 96606" d="M0 0h24v24H0z" style="fill:none"/>
+    <g data-name="Group 152657">
+        <path data-name="Path 96609" d="M11 13H7" transform="translate(5 .5)" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+        <path data-name="Path 96610" d="M15 9H7" transform="translate(1 .5)" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+        <path data-name="Path 96611" d="M19 10V7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h5" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none" transform="translate(1)"/>
+        <path data-name="Path 125717" d="M3 10V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-5" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none" transform="translate(1)"/>
+    </g>
+</svg>

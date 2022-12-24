@@ -1,0 +1,206 @@
+<section>
+  <div class="background">
+    <app-header></app-header>
+    <div class="main">
+      <div class="elements row justify-content-around m-0">
+        <div class="todo col-10 col-lg-3" [pDroppable]="['done','doings']" (onDrop)="dropDuty()">
+          <div class="title row justify-content-between align-items-center m-0">
+            <div class="col-lg-8">Duties📝 <span class="counter">{{duties.length}}</span></div>
+            <div class="col-lg-4">
+              <div *ngIf="!addNewDuty" class="add-svg" [inlineSVG]="'assets/icons/clipboard-add.svg'"
+                   (click)="addDuty()"></div>
+            </div>
+          </div>
+          <p-dialog [(visible)]="addNewDuty" [breakpoints]="{'960px': '75vw', '640px': '90vw',
+                  '425': '50vw'}" [modal]="true"
+                    [style]="{width: '50vw'}">
+
+            <div class="new-cart " [formGroup]="newDuty">
+              <div *ngIf="!editMode" class="mb-3 text-center"><h5>ایجاد وظیفه جدید</h5></div>
+              <div *ngIf="editMode" class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
+              <hr>
+              <div class="d-flex flex-wrap justify-content-between align-items-center p-fluid">
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <input type="text" id="title-input" pInputText formControlName="title">
+                    <label for="title-input">عنوان</label>
+                  </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3 ">
+                   <span class="p-float-label">
+                     <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
+                                 class="drop-down-cart" id="priority-input" [autoDisplayFirst]="false">
+                     </p-dropdown>
+                     <label for="priority-input">اولویت</label>
+                   </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <input type="text" id="detail-input" formControlName="description" pInputText>
+                    <label for="detail-input" class="description-input">توضیحات</label>
+                  </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <ng-persian-datepicker id="datepicker-input">
+                      <input type="text" formControlName="date" readonly pInputText/>
+                      <label for="datepicker-input"
+                             style="position: absolute; left: 308px; color: #6c757d;">تاریخ</label>
+                    </ng-persian-datepicker>
+                  </span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="adding" (click)="addNewTask()">ثبت</button>
+                <button class="canceling" (click)="cancel()">انصراف</button>
+              </div>
+            </div>
+          </p-dialog>
+          <div class="empty" *ngIf="duties.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
+          <div class="cart" *ngFor="let item of duties" [style.backgroundColor]="item.priority.code">
+            <div class="product-item" pDraggable="duties" (onDragStart)="dutyDragStart(item.id)"
+                 (onDragEnd)="dutyDragEnd()">
+              <div class="row justify-content-between align-items-center mx-0 mb-3">
+                <div class="col-lg-8">{{item.title}}</div>
+                <div class="col-lg-4 text-start"><p>{{item.priority.name}}</p></div>
+              </div>
+              <div class="card-description">
+                <div>{{item.description}}</div>
+                <div>
+                  <div class="d-flex justify-content-center align-items-center mt-3">
+                    <div>{{item.date}}</div>
+                    <div class="cart-operation" [inlineSVG]="'assets/icons/love-calendar.svg'"></div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="cart-operation" [inlineSVG]="'assets/icons/edit1.svg'" (click)="edit(item.id)"></div>
+                    <p-confirmPopup></p-confirmPopup>
+                    <button (click)="confirmDutyDelete($event, item.id)" class="delete-button"
+                    >
+                      <img src="assets/icons/delete.svg" alt="حذف" class="cart-operation">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="doing col-10 col-lg-3" [pDroppable]="['duties','done']" (onDrop)="dropDoing()">
+          <div class="title">
+            <div class="col-lg-8">Doing ▪▫▪ <span class="counter">{{doing.length}}</span></div>
+          </div>
+          <div class="empty" *ngIf="doing.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
+          <p-dialog [(visible)]="editDoing" [breakpoints]="{'960px': '75vw', '640px': '90vw',
+                  '425': '50vw'}"
+                    [style]="{width: '50vw'}">
+
+            <div class="new-cart" [formGroup]="newDuty">
+              <div class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
+              <hr>
+              <div class="d-flex flex-wrap justify-content-between align-items-center p-fluid">
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <input type="text" id="title-doing-input" pInputText formControlName="title">
+                    <label for="title-doing-input">عنوان</label>
+                  </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3 ">
+                   <span class="p-float-label">
+                     <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
+                                 class="drop-down-cart" id="priority-doing-input" [autoDisplayFirst]="false">
+                     </p-dropdown>
+                     <label for="priority-doing-input">اولویت</label>
+                   </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <input type="text" id="detail-doing-input" formControlName="description" pInputText>
+                    <label for="detail-doing-input" class="description-input">توضیحات</label>
+                  </span>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                  <span class="p-float-label">
+                    <ng-persian-datepicker id="datepicker-doing-input">
+                      <input type="text" formControlName="date" readonly pInputText/>
+                      <label for="datepicker-doing-input"
+                             style="position: absolute; left: 308px; color: #6c757d;">تاریخ</label>
+                    </ng-persian-datepicker>
+                  </span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="adding" type="submit" (click)="submitDoingTask()">ثبت</button>
+                <button class="canceling" (click)="cancelDoingTask()">انصراف</button>
+              </div>
+            </div>
+          </p-dialog>
+
+          <div class="cart" *ngFor="let item of doing" [style.backgroundColor]="item.priority.code">
+            <div class="product-item" pDraggable="doings" (onDragStart)="doingDragStart(item.id)"
+                 (onDragEnd)="doingDragEnd()">
+              <div class="row justify-content-between align-items-center mx-0 mb-3">
+                <div class="col-lg-8">{{item.title}}</div>
+                <div class="col-lg-4 text-start"><p>{{item.priority.name}}</p></div>
+              </div>
+              <div class="card-description">
+                <div>{{item.description}}</div>
+                <div>
+                  <div class="d-flex justify-content-center align-items-center mt-3">
+                    <div>{{item.date}}</div>
+                    <div class="cart-operation" [inlineSVG]="'assets/icons/love-calendar.svg'"></div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="cart-operation" [inlineSVG]="'assets/icons/edit1.svg'"
+                         (click)="editDoingTask(item.id)"></div>
+                    <p-confirmPopup></p-confirmPopup>
+                    <button (click)="confirmDoingDelete($event, item.id)" class="delete-button"
+                    >
+                      <img src="assets/icons/delete.svg" alt="حذف" class="cart-operation">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="done col-10 col-lg-3" [pDroppable]="['doings','duties']" (onDrop)="dropDone()">
+          <div class="title">
+            <div class="col-lg-8">Done✔ <span class="counter">{{done.length}}</span></div>
+          </div>
+          <div class="empty" *ngIf="done.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
+
+          <div class="cart" *ngFor="let item of done" [style.backgroundColor]="item.priority.code">
+
+            <div class="product-item" pDraggable="done" (onDragStart)="doneDragStart(item.id)"
+                 (onDragEnd)="doneDragEnd()">
+
+              <div class="row justify-content-between align-items-center mx-0 mb-3">
+                <div class="col-lg-8">{{item.title}}</div>
+                <div class="col-lg-4 text-start"><p>{{item.priority.name}}</p></div>
+              </div>
+              <div class="card-description">
+                <div>{{item.description}}</div>
+                <div>
+                  <div class="d-flex justify-content-center align-items-center mt-3">
+                    <div>{{item.date}}</div>
+                    <div class="cart-operation" [inlineSVG]="'assets/icons/love-calendar.svg'"></div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p-confirmPopup></p-confirmPopup>
+                    <button (click)="confirmDoneDelete($event, item.id)" class="delete-button"
+                    >
+                      <img src="assets/icons/delete.svg" alt="حذف" class="cart-operation">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p-toast position="top-right"></p-toast>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,217 @@
+section {
+  background-image: url("/assets/pixes/background-todolist.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+
+  .background {
+
+    .main {
+      background-color: rgba(0, 0, 0, .7);
+      height: calc(100vh - 60px);
+
+      .elements {
+        .todo, .doing, .done {
+          background-color: #d2d2d2;
+          height: fit-content;
+          max-height: calc(100vh - 110px);
+          overflow: auto;
+          color: black;
+          opacity: 1;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 10px;
+
+          .title {
+            font-size: 25px;
+            font-weight: bold;
+            border-bottom: 2px solid #2d2d2d;
+            position: relative;
+
+            .counter {
+              font-size: 15px;
+              border: 3px solid black;
+              width: fit-content;
+              padding: 0 7px;
+              display: inline-block;
+              margin: 0 0 5px 0;
+              border-radius: 30px;
+            }
+
+            .add-svg {
+              position: absolute;
+              right: 5px;
+              top: 0;
+              width: 30px;
+              cursor: pointer;
+            }
+          }
+
+          .new-cart {
+            font-family: "B Koodak";
+
+            input {
+              color: #2d2d2d;
+              text-align: center;
+              width: 80%;
+              border: 1px solid gainsboro;
+              border-radius: 5px;
+              margin-bottom: 5px;
+              background-color: rgba(250, 250, 250, 0.87);
+            }
+
+
+            .adding {
+              width: 50px;
+              color: #1b5b0e;
+              background-color: #8af66d;
+              border: 2px solid #1f8304;
+              border-radius: 5px;
+            }
+
+            .deleting {
+              width: 50px;
+              color: #b01507;
+              background-color: #ff7b7b;
+              border: 2px solid #e71806;
+              border-radius: 5px;
+            }
+
+            .canceling {
+              width: 55px;
+              color: #b01507;
+              background-color: #ff7b7b;
+              border: 2px solid #e71806;
+              border-radius: 5px;
+              padding: 2px 5px;
+            }
+          }
+
+          .empty {
+            height: fit-content;
+            color: #790000;
+            font-size: 15px;
+            text-align: center;
+            font-family: "B Koodak";
+            background-color: white;
+            padding: 5px;
+            margin: 8px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px grey;
+
+            p {
+              margin: 5px;
+            }
+          }
+
+          .cart {
+            color: #790000;
+            font-size: 15px;
+            font-family: "B Koodak";
+            background-color: white;
+            padding: 5px;
+            margin: 8px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px grey;
+            direction: rtl;
+            cursor: move;
+
+            .delete-button {
+              border: none;
+              background-color: inherit;
+              padding: 0;
+            }
+
+            .card-description {
+              font-size: 13px;
+              text-align: center;
+              overflow: hidden;
+
+
+              .cart-operation {
+                width: 20px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+:host ::ng-deep .drag-column {
+  padding-right: .5em;
+}
+
+.description-input{
+  margin-left: -16px;
+}
+
+.drop-column {
+  border: 1px solid transparent;
+  transition: border-color 1s;
+
+  &.p-draggable-enter {
+    background-color: red;
+    border-color: var(--primary-color);
+  }
+}
+
+.product-item {
+  //display: flex;
+  align-items: center;
+  padding: .5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--surface-d);
+
+  .product-list-detail {
+    flex: 1 1 0;
+  }
+
+  .product-list-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .product-category-icon {
+    vertical-align: middle;
+    margin-right: .5rem;
+  }
+
+  .product-category {
+    vertical-align: middle;
+    line-height: 1;
+  }
+}
+
+[pDraggable] {
+  cursor: move;
+}
+
+//@media screen and (max-width: 576px) {
+//  .product-item {
+//    flex-wrap: wrap;
+//  }
+//}
+
+@media (max-width: 900px) {
+  section {
+    background-image: url("/assets/pixes/mobile-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+  }
+
+  .elements{
+    height: calc(100vh - 60px);
+    overflow: auto;
+  }
+}

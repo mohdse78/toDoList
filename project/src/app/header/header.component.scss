@@ -1,0 +1,58 @@
+.header {
+  background-color: rgba(255, 255, 255, 1);
+  height: 60px;
+  max-height:70px;
+  opacity: 100;
+
+  .web-name {
+    color: #790000;
+    font-size: 30px;
+    font-weight: bold;
+    p{
+      font-size: 200%;
+    }
+  }
+
+  .user-name {
+    color: #790000;
+    font-size: 20px;
+    font-weight: bold;
+    p{
+      font-size: 100%;
+    }
+  }
+
+  .user-profile {
+    opacity: 1;
+
+    img {
+      width: 45px;
+      border: 3px solid black;
+      border-radius: 45px;
+    }
+
+  }
+}
+
+//
+//.header-container> div {
+//  height: fit-content;
+//  max-height: 60px;
+//}
+
+@media (max-width: 425px) {
+  .user-name{
+    display: none;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .user-name{
+    p{
+      margin-right: 5px;
+      font-size:15px !important;
+    }
+  }
+
+}

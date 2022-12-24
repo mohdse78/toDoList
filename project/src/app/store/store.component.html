@@ -1,0 +1,83 @@
+<section>
+  <div class="body">
+    <router-outlet></router-outlet>
+    <div class="mb-5">
+      <div class="row justify-content-between align-items-center mx-5">
+        <div class="col-lg-3 head-s-container">
+          <h1>S.M.H</h1>
+        </div>
+        <div class="d-flex justify-content-between align-items-center col-lg-6">
+          <div class="d-flex justify-content-around align-items-center col-6 head-m-container">
+            <div>Home</div>
+            <div>About</div>
+            <div>Collection</div>
+            <div>Contact</div>
+          </div>
+          <div class="d-flex justify-content-around align-items-center col-lg-4 head-e-container">
+            <div [inlineSVG]="'assets/icons/user-svgrepo-com.svg'"></div>
+            <div [inlineSVG]="'assets/icons/shopping-cart-svgrepo-com.svg'"></div>
+            <div [inlineSVG]="'assets/icons/location-svgrepo-com.svg'"></div>
+            <div [inlineSVG]="'assets/icons/search-svgrepo-com.svg'"></div>
+          </div>
+        </div>
+        <div class="col-lg-2 text-end">
+          <button class="btn-sign-in">SIGN IN</button>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="m-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="title"><h2>COMBINE STYLE WITH <br> COMFORT <span class="stars"><img
+            src="assets/icons/star-svgrepo-com.svg"><img
+            src="assets/icons/star-svgrepo-com.svg"><img src="assets/icons/star-svgrepo-com.svg"><img
+            src="assets/icons/star-svgrepo-com.svg"><img src="assets/icons/star-svgrepo-com.svg"></span></h2></div>
+          <div>
+            <div><p>Trusted to deliver the world's best shop in local<br/>communities across the country.</p>
+            </div>
+            <div>
+              <button class="explore">EXPLORE NOW</button>
+              <button class="play"><img src="assets/pixes/triangle.jpg"></button>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="row justify-content-center m-0">
+        <div class="moddeling">model popular
+          <div class="man-lie"><img src="assets/pixes/Lie-Down.png"></div>
+          <div class="sale text-end">
+            <div class="persent">20%</div>
+            <div>OFF</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="m-5">
+        <div class="d-flex justify-content-between mx-5">
+          <div class="col-lg-4">
+            <h2>TRENDY COLLECTION</h2>
+          </div>
+          <div class="d-flex justify-content-around align-items-center col-lg-3 arrow">
+            <div><img src="assets/pixes/arrow-left.png"></div>
+            <div><img src="assets/pixes/arrow-right.png"></div>
+          </div>
+        </div>
+        <div>
+          <div class="d-flex justify-content-around align-items-center">
+            <div *ngFor="let item of product" class="d-flex justify-content-around align-items-center m-5 cart">
+              <div><img class="product-img" src="{{item.picture}}"></div>
+              <div class="product-detail">
+                <h3>{{item.name}}</h3>
+                <h4>Price - <span>{{item.price}}$</span></h4>
+                <button>DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>

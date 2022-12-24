@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path data-name="Path 96606" d="M0 0h24v24H0z" style="fill:none"/>
+    <path data-name="Path 96609" d="M7 13h4" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+    <path data-name="Path 96610" d="M7 9h8" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+    <path data-name="Path 96611" d="M19 10V7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h5" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+    <g data-name="Group 152637">
+        <g data-name="Group 19448">
+            <path data-name="Path 20958" d="M0 0v2.068l1.625.991" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none" transform="translate(17.377 15.214)"/>
+        </g>
+        <g data-name="Group 19449">
+            <path data-name="Path 20959" d="M4.89.1A4 4 0 1 0 7.9 3.11" transform="translate(13.501 13)" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+        </g>
+        <g data-name="Group 152635">
+            <path data-name="Path 20959" d="M3.107.1A4 4 0 1 1 .1 3.11" transform="translate(13.501 13)" style="stroke:#4791ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;fill:none"/>
+        </g>
+    </g>
+</svg>
