@@ -42,6 +42,8 @@ export class ToDoListComponent implements OnInit {
   doingDraggedCartId: any;
   doneDraggedCartId: any;
   prioritySelected: any;
+  innerWidth: any= false;
+  mobileSize: boolean= false;
 
 
   duties: { id: number, title: string, description: string, date: string, priority: { id: number, name: string, code: string } }[] = []
@@ -50,6 +52,13 @@ export class ToDoListComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.innerWidth = window.innerWidth;
+    if (this.innerWidth < 1024) {
+      this.mobileSize = true
+    }
+
+
     this.newDuty = this.fb.group({
       id: [0],
       title: ['', [Validators.required]],

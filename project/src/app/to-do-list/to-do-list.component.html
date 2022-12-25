@@ -15,7 +15,7 @@
                   '425': '50vw'}" [modal]="true"
                     [style]="{width: '50vw'}">
 
-            <div class="new-cart " [formGroup]="newDuty">
+            <div class="new-cart " [formGroup]="newDuty" *ngIf="!mobileSize">
               <div *ngIf="!editMode" class="mb-3 text-center"><h5>ایجاد وظیفه جدید</h5></div>
               <div *ngIf="editMode" class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
               <hr>
@@ -55,6 +55,42 @@
                 <button class="canceling" (click)="cancel()">انصراف</button>
               </div>
             </div>
+
+
+            <div class="new-cart " [formGroup]="newDuty" *ngIf="mobileSize">
+              <div *ngIf="!editMode" class="mb-3 text-center"><h5>ایجاد وظیفه جدید</h5></div>
+              <div *ngIf="editMode" class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
+              <hr>
+              <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <div class="field col-12 col-lg-6 my-3">
+                    <input type="text" id="s-title-input" pInputText formControlName="title">
+                    <label for="s-title-input">عنوان</label>
+                </div>
+                <div class="field col-12 col-lg-6 my-3 ">
+                     <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
+                                 class="drop-down-cart" id="s-priority-input" [autoDisplayFirst]="false">
+                     </p-dropdown>
+                     <label for="s-priority-input">اولویت</label>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                    <input type="text" id="s-detail-input" formControlName="description" pInputText>
+                    <label for="s-detail-input" class="description-input">توضیحات</label>
+                </div>
+                <div class="field col-12 col-lg-6 my-3">
+                    <ng-persian-datepicker id="s-datepicker-input">
+                      <input type="text" formControlName="date" readonly pInputText/>
+                      <label for="s-datepicker-input"
+                             style="position: absolute; left: 308px; color: #6c757d;">تاریخ</label>
+                    </ng-persian-datepicker>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="adding" (click)="addNewTask()">ثبت</button>
+                <button class="canceling" (click)="cancel()">انصراف</button>
+              </div>
+            </div>
+
+
           </p-dialog>
           <div class="empty" *ngIf="duties.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
           <div class="cart" *ngFor="let item of duties" [style.backgroundColor]="item.priority.code">
