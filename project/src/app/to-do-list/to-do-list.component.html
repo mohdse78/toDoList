@@ -5,7 +5,10 @@
       <div class="elements row justify-content-around m-0">
         <div class="todo col-10 col-lg-3" [pDroppable]="['done','doings']" (onDrop)="dropDuty()">
           <div class="title row justify-content-between align-items-center m-0">
-            <div class="col-lg-8">Duties📝 <span class="counter">{{duties.length}}</span></div>
+            <div class="col-lg-8 d-flex justify-content-start align-items-center">
+              <div>Duties</div>
+              <div class="counter">{{duties.length}}</div>
+            </div>
             <div class="col-lg-4">
               <div *ngIf="!addNewDuty" class="add-svg" [inlineSVG]="'assets/icons/clipboard-add.svg'"
                    (click)="addDuty()"></div>
@@ -15,73 +18,30 @@
                   '425': '50vw'}" [modal]="true"
                     [style]="{width: '50vw'}">
 
-            <div class="new-cart " [formGroup]="newDuty" *ngIf="!mobileSize">
-              <div *ngIf="!editMode" class="mb-3 text-center"><h5>ایجاد وظیفه جدید</h5></div>
-              <div *ngIf="editMode" class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
-              <hr>
-              <div class="d-flex flex-wrap justify-content-between align-items-center p-fluid">
-                <div class="field col-12 col-lg-6 my-3">
-                  <span class="p-float-label">
-                    <input type="text" id="title-input" pInputText formControlName="title">
-                    <label for="title-input">عنوان</label>
-                  </span>
-                </div>
-                <div class="field col-12 col-lg-6 my-3 ">
-                   <span class="p-float-label">
-                     <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
-                                 class="drop-down-cart" id="priority-input" [autoDisplayFirst]="false">
-                     </p-dropdown>
-                     <label for="priority-input">اولویت</label>
-                   </span>
-                </div>
-                <div class="field col-12 col-lg-6 my-3">
-                  <span class="p-float-label">
-                    <input type="text" id="detail-input" formControlName="description" pInputText>
-                    <label for="detail-input" class="description-input">توضیحات</label>
-                  </span>
-                </div>
-                <div class="field col-12 col-lg-6 my-3">
-                  <span class="p-float-label">
-                    <ng-persian-datepicker id="datepicker-input">
-                      <input type="text" formControlName="date" readonly pInputText/>
-                      <label for="datepicker-input"
-                             style="position: absolute; left: 308px; color: #6c757d;">تاریخ</label>
-                    </ng-persian-datepicker>
-                  </span>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <button class="adding" (click)="addNewTask()">ثبت</button>
-                <button class="canceling" (click)="cancel()">انصراف</button>
-              </div>
-            </div>
-
-
-            <div class="new-cart " [formGroup]="newDuty" *ngIf="mobileSize">
-              <div *ngIf="!editMode" class="mb-3 text-center"><h5>ایجاد وظیفه جدید</h5></div>
-              <div *ngIf="editMode" class="mb-3 text-center"><h5>ویرایش وظیفه</h5></div>
+            <div class="new-cart " [formGroup]="newDuty">
+              <div *ngIf="!editMode" class="mb-2 text-center"><h5>ایجاد وظیفه جدید</h5></div>
+              <div *ngIf="editMode" class="mb-2 text-center"><h5>ویرایش وظیفه</h5></div>
               <hr>
               <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <div class="field col-12 col-lg-6 my-3">
-                    <input type="text" id="s-title-input" pInputText formControlName="title">
-                    <label for="s-title-input">عنوان</label>
+                <div class="col-12 col-lg-6 mb-3">
+                  <p>عنوان :</p>
+                  <input type="text" pInputText formControlName="title">
                 </div>
-                <div class="field col-12 col-lg-6 my-3 ">
-                     <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
-                                 class="drop-down-cart" id="s-priority-input" [autoDisplayFirst]="false">
-                     </p-dropdown>
-                     <label for="s-priority-input">اولویت</label>
+                <div class="col-12 col-lg-6 mb-3 ">
+                  <p>اولویت :</p>
+                  <p-dropdown formControlName="priority" [options]="priority" optionLabel="name"
+                              class="drop-down-cart" [autoDisplayFirst]="false">
+                  </p-dropdown>
                 </div>
-                <div class="field col-12 col-lg-6 my-3">
-                    <input type="text" id="s-detail-input" formControlName="description" pInputText>
-                    <label for="s-detail-input" class="description-input">توضیحات</label>
+                <div class="col-12 col-lg-6 mb-3">
+                  <p>توضیحات :</p>
+                  <input type="text" formControlName="description" pInputText>
                 </div>
-                <div class="field col-12 col-lg-6 my-3">
-                    <ng-persian-datepicker id="s-datepicker-input">
-                      <input type="text" formControlName="date" readonly pInputText/>
-                      <label for="s-datepicker-input"
-                             style="position: absolute; left: 308px; color: #6c757d;">تاریخ</label>
-                    </ng-persian-datepicker>
+                <div class="col-12 col-lg-6 mb-3">
+                  <p>تاریخ :</p>
+                  <ng-persian-datepicker>
+                    <input type="text" formControlName="date" readonly pInputText/>
+                  </ng-persian-datepicker>
                 </div>
               </div>
               <div class="d-flex justify-content-between align-items-center">
@@ -89,8 +49,6 @@
                 <button class="canceling" (click)="cancel()">انصراف</button>
               </div>
             </div>
-
-
           </p-dialog>
           <div class="empty" *ngIf="duties.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
           <div class="cart" *ngFor="let item of duties" [style.backgroundColor]="item.priority.code">
@@ -122,7 +80,10 @@
         </div>
         <div class="doing col-10 col-lg-3" [pDroppable]="['duties','done']" (onDrop)="dropDoing()">
           <div class="title">
-            <div class="col-lg-8">Doing ▪▫▪ <span class="counter">{{doing.length}}</span></div>
+            <div class="col-lg-8 d-flex justify-content-start align-items-center">
+              <div>Doing</div>
+              <div class="counter">{{doing.length}}</div>
+            </div>
           </div>
           <div class="empty" *ngIf="doing.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
           <p-dialog [(visible)]="editDoing" [breakpoints]="{'960px': '75vw', '640px': '90vw',
@@ -202,7 +163,10 @@
 
         <div class="done col-10 col-lg-3" [pDroppable]="['doings','duties']" (onDrop)="dropDone()">
           <div class="title">
-            <div class="col-lg-8">Done✔ <span class="counter">{{done.length}}</span></div>
+            <div class="col-lg-8 d-flex justify-content-start align-items-center">
+              <div>Done</div>
+              <div class="counter">{{done.length}}</div>
+            </div>
           </div>
           <div class="empty" *ngIf="done.length < 1"><p>لیستی برای انجام وجود ندارد</p></div>
 

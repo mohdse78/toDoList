@@ -1,9 +1,9 @@
-section{
+section {
   background: #99C68E;
   background-size: cover;
   height: 100vh;
 
-  span{
+  .project {
     font-size: 50px;
     font-weight: bold;
     text-decoration: none;
@@ -19,7 +19,7 @@ section{
     transition: 1s;
   }
 
-  span:hover{
+  .project:hover {
     color: #b102b7;
     text-shadow: -1px 1px 0 #FFCBA4,
     1px 1px 0 #FFCBA4,
@@ -32,8 +32,7 @@ section{
 
   }
 
-  button{
-    width: 30%;
+  button {
     height: 200px;
     background: #FDD017;
     font-size: 35px;
@@ -41,12 +40,12 @@ section{
     padding: 20px;
     border: 5px solid #fd004c;
     border-radius: 10px;
-    margin: 50px auto 0 auto;
+    margin: 5px auto 0 auto;
     position: relative;
     transition: 1.5s;
 
 
-    a{
+    a {
       color: #fd004c;
       text-decoration: none;
       transition: 1.5s;
@@ -55,21 +54,22 @@ section{
 
   }
 
-  button:hover{
-    width:31%;
+  button:hover {
+    width: 31%;
     background: #FFCBA4;
     border: 5px solid #b102b7;
     box-shadow: 3px 3px 20px #6c757d;
-    a{
+
+    a {
       color: #b102b7;
     }
   }
 
-  button:before{
+  button:before {
     content: "";
     position: absolute;
     height: 0.3em;
-    width:70%;
+    width: 70%;
     background: linear-gradient(
         to right,
         #fd004c,
@@ -85,7 +85,41 @@ section{
     transition: 1.5s;
   }
 
-  button:hover:before{
+  button:hover:before {
     background-position: 100% 0;
   }
+}
+
+@media (max-width: 486px) {
+
+  section {
+
+    .project {
+      font-size: 30px;
+      text-shadow: -1px 1px 0 #fd004c,
+      1px 1px 0 #fd004c,
+      1px -1px 0 #fd004c,
+      -1px -1px 0 #fd004c,
+      -2px 2px 20px #f8ca33,
+      2px 2px 20px #f8ca33,
+      2px -2px 20px #f8ca33,
+      -2px -2px 20px #f8ca33;
+    }
+
+    button {
+      width: 150px;
+      height: 100px;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 1px;
+      margin: 0 20px;
+      border: 3px solid #fd004c;
+      border-radius: 8px;
+    }
+
+    button:before {
+      display: none;
+    }
+  }
+
 }

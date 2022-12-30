@@ -10,14 +10,18 @@ canvas {
 
 
 .p-dialog{
-  height: 50%;
+  height: 400px;
   direction: rtl;
+}
+
+.p-dialog-content{
+  padding: 0 1.5rem !important;
 }
 
 .drop-down-cart>div {
   color: #2d2d2d;
   text-align: center;
-  width: 80%;
+  width: 90%;
   height: 50px;
   border: 1px solid gainsboro;
   border-radius: 5px;
@@ -39,31 +43,18 @@ li.p-ripple{
 }
 
 .datepicker-outer-container{
-  width: 80%;
+  width: 160px;
   height: fit-content;
   padding: 0;
   margin: auto;
   position: absolute;
-  top: -116px;
-  right: 74px;
+  top: 50px;
+  right: auto;
 }
 
 .datepicker-content> input{
   cursor: pointer;
   height: 50px;
-}
-
-.p-float-label input{
-  font-family: "B Koodak";
-}
-
-.p-float-label label{
-  width: 70%;
-  text-align: end;
-}
-
-.p-float-label > label{
-  left: 18.75rem;
 }
 
 
