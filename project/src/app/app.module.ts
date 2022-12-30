@@ -19,6 +19,7 @@ import {ToastModule} from 'primeng/toast';
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {InputTextModule} from "primeng/inputtext";
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {CoreModule} from "./modules/core/core.module";
 
 
 
@@ -46,7 +47,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     NgPersianDatepickerModule,
     InputTextareaModule,
     InputTextModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

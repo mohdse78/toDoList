@@ -1,0 +1,37 @@
+<div class="main d-flex justify-content-center align-items-center text-center" [formGroup]="myForm">
+  <div class="total-container text-end">
+    <div class="mt-0">
+      <label>تعداد محصول</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="تعداد" maxlength="30" formControlName="number"
+             required>
+    </div>
+    <div>
+      <label>قیمت درهم جدید</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="درهم" maxlength="30" formControlName="derham" required>
+    </div>
+    <div>
+      <label>هزینه باربری</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="هزینه باربری" maxlength="10" formControlName="barbari">
+    </div>
+    <div>
+      <label>درصد تخفیف</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="تخفیف" maxlength="2" formControlName="percent">
+    </div>
+    <div>
+      <label>درصد مالیات</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="تخفیف" maxlength="2" formControlName="maliat">
+    </div>
+    <div>
+      <label>قیمت روزانه درهم</label>
+      <input type="text" pattern="[0-9]*" appNumber placeholder="قیمت روزانه درهم" maxlength="30"
+             formControlName="todayDerhamPrice">
+    </div>
+    <div class="text-center">
+      <button class="btn-calc" (click)="calculate()">محاسبه قیمت</button>
+    </div>
+    <div class="text-center">
+      <p class="total-price">در مجموع <span>{{totalPrice}}</span></p>
+    </div>
+    <p-toast position="top-right"></p-toast>
+  </div>
+</div>

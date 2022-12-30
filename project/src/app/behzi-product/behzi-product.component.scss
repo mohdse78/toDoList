@@ -1,0 +1,41 @@
+//*{
+//  direction: rtl;
+//  position: relative;
+//  background-color: #99C68E;
+//  background-size: cover;
+//  height: 100vh;
+//}
+
+.main{
+  direction: rtl;
+  position: relative;
+  background-color: #99C68E;
+  background-size: cover;
+  height: 100vh;
+  .total-container div{
+    margin: 10px 0;
+    input{
+      width: 100%;
+      margin-right: 5px;
+      border-radius: 10px;
+      color: green;
+      border: 2px solid #135b04;
+      text-align: center;
+    }
+
+    .btn-calc{
+      width: 100%;
+      color: #d2d2d2;
+      padding: 3px;
+      background-color: darkolivegreen;
+      border: 2px solid #1b5b0e;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+
+    .total-price{
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+}
